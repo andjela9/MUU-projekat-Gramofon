@@ -44,6 +44,7 @@ void parsiraj_poruku(){
 			pok = greska_serijskaPor;
 		}												   
 		else{
+			mod = 2;
 			pomeriti_nitni = buffer[4] - 48;
 		 	pok = serijski_mod2;	
 		}
