@@ -101,7 +101,7 @@ void main(void){
 	  TR0 = 1;
 	  PCON = 0x80;
 	  SCON = 0x50;
-	  BDRCON = 0x1C;	 					//za 115 200
+	  BDRCON = 0x1C;	 					//za 19200
 	  BRL = 253;
 	  EA = 1;
 	  ES = 1;
