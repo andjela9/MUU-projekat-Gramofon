@@ -38,13 +38,13 @@ void parsiraj_poruku(){
 		pok = serijski_mod1;
 	}
 	//ako ce broj nitni biti jednocifren
-	//TODO: ako moze biti i dvocifren
 	else if(buffer[0] == '(' && buffer[1] == 'M' && buffer[2] == '2' && buffer[3] == ':' && buffer[5] == ')'){
 		if(buffer[4] - 48 < 0 || buffer[4] - 48 > 9){
 			greska_serijska = 1;
 			pok = greska_serijskaPor;
 		}												   
 		else{
+			mod = 2;
 			pomeriti_nitni = buffer[4] - 48;
 		 	pok = serijski_mod2;	
 		}
@@ -57,6 +57,7 @@ void parsiraj_poruku(){
 			pok = greska_serijskaPor;
 		}
 		else{
+			mod = 2;
 			pomeriti_nitni = (buffer[4] - 48)*10 + (buffer[5] - 48) ;			//desetice*10 + jedinice
 			pok = serijski_mod2;
 		}
@@ -70,6 +71,7 @@ void parsiraj_poruku(){
 		else{
 			//za slucaj da se unese broj >255
 			if(((buffer[4] - 48)*100 + (buffer[5] - 48)*10 + (buffer[6] - 48)) <= 255){
+				mod = 2;
 				pomeriti_nitni = (buffer[4] - 48)*100 + (buffer[5] - 48)*10 + (buffer[6] - 48);
 				pok = serijski_mod2;
 			}
